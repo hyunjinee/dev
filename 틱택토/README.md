@@ -8,3 +8,6 @@
     - 세줄이 되었나?
         - 되었으면 이김
         - 안되었으면 다음 사람 입력. (턴을 넘긴다.)
+
+
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/63354527/103434972-e9944a80-4c4b-11eb-84d4-57f846345829.gif)
