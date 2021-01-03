@@ -11,3 +11,5 @@ http://minesweeperonline.com/
 4. 지뢰를 밟으면 중단플래그가 동작해서 지뢰밭의 클릭이벤트가 멈춘다. 그리고 실패라는 문구가 나타난다.
 5. 다시 실행을 눌러서 지뢰찾기 다시시작가능!
 6. 만약 성공했다면.. 승리!라는 문구가 나타난다.
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/63354527/103471788-a1019c00-4dc7-11eb-9253-999747737838.gif)
