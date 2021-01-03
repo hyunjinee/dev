@@ -12,4 +12,4 @@ http://minesweeperonline.com/
 5. 다시 실행을 눌러서 지뢰찾기 다시시작가능!
 6. 만약 성공했다면.. 승리!라는 문구가 나타난다.
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/63354527/103471788-a1019c00-4dc7-11eb-9253-999747737838.gif)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/63354527/103471801-e7ef9180-4dc7-11eb-9f94-715fda91f503.gif)
