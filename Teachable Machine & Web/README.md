@@ -3,6 +3,8 @@
 [Teachable Machine](https://teachablemachine.withgoogle.com/)
 
 1. 사진을 찍어서 teachable machine을 학습시킨다.
+![캡처](https://user-images.githubusercontent.com/63354527/104153522-e35d5580-5425-11eb-8e66-1f9344e80cbd.PNG)
+
 2. Tensorflow.js 로 모델을 export한다.
 3. 웹캠을 사용하기 때문에 보안문제. https 사용
 4. 웹서버는 nodejs를 사용한다.
