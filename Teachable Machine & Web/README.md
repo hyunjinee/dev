@@ -11,3 +11,4 @@
 5. npm istall -g local-web-server
 6. ws --https --port 9999 --open 아니면 npx local-web-server --https --port 9999 --open
 7. teachable machine 이 작성한 코드에서 낮과 밤을 구분하는 코드에 배경색 바꾸는 코드를 추가
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/63354527/104154066-47cce480-5427-11eb-8c62-d0c545025347.gif)
