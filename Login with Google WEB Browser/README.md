@@ -20,6 +20,10 @@ access token 이 비밀번호인 셈이다.
 
 구글에서 제공하는 sdk 를 이용해서 로그인구현!
 ![캡처](https://user-images.githubusercontent.com/63354527/104687351-5e827c80-5742-11eb-8b2f-90bf9e68b6c9.PNG)
+googleauth signIn 에서 scope 지정으로 사용할 수 있는 api 또한 설정할수있다 (ex. 달력등..)
+
+
+
 
 검색어
 integrating google sign-in into your web
