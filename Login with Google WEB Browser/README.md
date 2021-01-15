@@ -23,5 +23,6 @@ access token 이 비밀번호인 셈이다.
 
 검색어
 integrating google sign-in into your web
+
 google sign in javascript client reference
 구글 api 를 통해 access 하면 따로 로그인을 구현하지 않아도되니, 매우 편하다.
