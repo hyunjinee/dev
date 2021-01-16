@@ -88,7 +88,6 @@ example.com 이라는 주소를 사용하고 싶다면, 등록대행자에게 �
 com 에다가 자기 서비스의 도메인을 알려주는 네임서버를 알려주고 com 이 요청을 받으면 그네임서버(authoriative nameserver)을 리턴한다.그리고 마지막으로 그 네임서버에 접근해서 ip 를 따오고 그아이피의 컴퓨터로 접속하면 접속이된다.
 ![캡처](https://user-images.githubusercontent.com/63354527/104809213-f2317700-582e-11eb-9099-e25799054fa8.PNG)
 
-
 ### nslookup
 
 nameserverlookup example.com
@@ -99,3 +98,18 @@ nslookup -type=ns example.com (nameserver 에 대한 정보)
 nslookup -type=a example.com (ip 주소에 대한 정보)
 
 ### My Domain Name
+
+freenom.com 서비스: 공짜도메인을 주는 서비스
+도메인네임을 사용하기위해선 네임서버가 필요하다.따라서 freenom 은 네임서버도 기본적으로 제공해준다. 네임서버도세팅이 된 상태
+
+### DNS record & CNAME
+
+A 타입레코드는 도메인주소와 ip 주소를 연결하는것
+CNAME 레코드는 도메인에 대한 별명(도메인에 또다른 도메인을 지정하는것)으로써 www.example.com.(CNAME) -> example.com. -> (A)ip주소
+서버의 도메인 네임을 지정하는 새로운 방식
+
+### domain name mapping
+
+도메인네임을 갖고, dns server 에 세팅을 한다. 깃헙이ip 를 알려주면, 그 아이피를 dns 서버에서 A레코드로 도메인네임과 짝짓기시켜준다.
+사용자들이 도메인네임으로 접속을 하면, 도메인서버에서 아이피를 알려주고, 그 아이피로 접속을 한다.
+깃허브의 웹서버에 그 도메인으로 접속을 하면, 그 도메인을 알아보고 그 규칙에해당하는 컨텐츠를 응답한다.
