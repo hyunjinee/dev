@@ -19,6 +19,8 @@ access token 이 비밀번호인 셈이다.
 이 식별자로 구글은 우리의 서비스를 식별한다.
 
 구글에서 제공하는 sdk 를 이용해서 로그인구현!
+![캡처](https://user-images.githubusercontent.com/63354527/104796943-dd88bb00-57fd-11eb-943f-c4591e466f73.PNG)
+
 
 검색어
 integrating google sign-in into your web
