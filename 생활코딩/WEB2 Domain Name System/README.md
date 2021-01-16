@@ -75,3 +75,19 @@ root 네임서버는 응답한다. 나는 모르겠는데, 주소가 com 으로 
 그 후 최종적으로 sub domain 을 전담하는 DNS server 에 접속
 바로 이과정을 통해서 우리는 우리가 원하는 ip 주소를 알게된다. DNS 는 서로가 협력하면서, 전세계인들에게 ip 주소를 알려준다. 각 부분을 전담하는 서버가 있다.
 ![캡처](https://user-images.githubusercontent.com/63354527/104798620-af11dc80-580b-11eb-8d36-eee88f7172fc.PNG)
+
+### DNS register
+
+ICANN 비영리단체 root name server 관리
+전세계에 a.root-servers.net 13개의 루트 네임서버가 존재한다. a,b,c ...
+registry 는 top level domain 을 관리한다.
+등록 대행자 (registrar) 등록 작업을 대행해준다. 업체또는 기관
+example.com 이라는 주소를 사용하고 싶다면, 등록대행자에게 의뢰 그러면 등록대행자가 등록소에게 등록을 한다.
+등록소는 example.com 을 계약한 기간동안 사용할 수 있게 해준다.
+루트네임서버는 전세계의 topleveldomain 의 주소를 기억한다.
+com 에다가 자기 서비스의 도메인을 알려주는 네임서버를 알려주고 com 이 요청을 받으면 그네임서버(authoriative nameserver)을 리턴한다.그리고 마지막으로 그 네임서버에 접근해서 ip 를 따오고 그아이피의 컴퓨터로 접속하면 접속이된다.
+
+### nslookup
+
+nameserverlookup example.com
+cmd명령어 nslookup example.com
