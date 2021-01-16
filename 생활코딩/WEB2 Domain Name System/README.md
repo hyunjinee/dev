@@ -86,6 +86,8 @@ example.com 이라는 주소를 사용하고 싶다면, 등록대행자에게 �
 등록소는 example.com 을 계약한 기간동안 사용할 수 있게 해준다.
 루트네임서버는 전세계의 topleveldomain 의 주소를 기억한다.
 com 에다가 자기 서비스의 도메인을 알려주는 네임서버를 알려주고 com 이 요청을 받으면 그네임서버(authoriative nameserver)을 리턴한다.그리고 마지막으로 그 네임서버에 접근해서 ip 를 따오고 그아이피의 컴퓨터로 접속하면 접속이된다.
+![캡처](https://user-images.githubusercontent.com/63354527/104809213-f2317700-582e-11eb-9099-e25799054fa8.PNG)
+
 
 ### nslookup
 
