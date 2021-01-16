@@ -91,3 +91,9 @@ com 에다가 자기 서비스의 도메인을 알려주는 네임서버를 알�
 
 nameserverlookup example.com
 cmd명령어 nslookup example.com
+요청할때마다 모든 사이클을 돌면 느리다. 그니까 첫요청만 사이클을돌고 그다음요청은 기억하게 만든다.
+이러한 것을 캐시라고 한다. 저장(캐시) 일의결과를 저장했다가 같은요청이 들어오면 재사용한다.
+nslookup -type=ns example.com (nameserver 에 대한 정보)
+nslookup -type=a example.com (ip 주소에 대한 정보)
+
+### My Domain Name
