@@ -16,8 +16,10 @@ Response Header 을보면, 자기 통신 방법을 응답하는데 , HTTP/1.1 20
 User-Agent 웹브라우저의 다른표현이다.
 Accept-Encoding 웹서버가 압축해서보내면 웹브라우저가 풀어서 해석한다.방식 gzip, deflate, br 등..
 If-Modified-Since 요청 할 때마다 다운 받는게 효율적이지 않으므로, 내가 갖고있는 파일은 마지막으로 언제 다운로드 받은것인지 서버에게 알려준다. 파일이 바뀌어서 최신이면 서버가 전송, 최신이 아니면 왠만해서 다운로드 할 필요가 없으므로 서버가 전송 안해도된다.
+![캡처](https://user-images.githubusercontent.com/63354527/104832118-05495300-58d2-11eb-935d-f9b79f405c1e.PNG)
 
 ### HTTP Response message
 
 응답결과들은 1xx, 2xx, 3xx, 4xx, 5xx 로 나뉜다.
 http status code
+![캡처2](https://user-images.githubusercontent.com/63354527/104832119-067a8000-58d2-11eb-8c5b-b324c77dde9e.png)
