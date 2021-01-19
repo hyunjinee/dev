@@ -108,5 +108,4 @@ Require.js와 같은 라이브러리를 쓰지 않으면 동적으로 원하는 
 
 ### Hello Webpack
 
-여기 실습 링크
-(practice01)
+[practice01](https://github.com/HYUNJINE/Frontend/tree/master/webpack/practice/practice01)
