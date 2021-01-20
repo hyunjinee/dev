@@ -32,3 +32,30 @@ store.subscribe(render);
 
 store을 구독하면, state 값이 바뀔때마다 렌더함수를 호출 할 수 있게된다.
 ![캡처2](https://user-images.githubusercontent.com/63354527/105116449-24342900-5b0e-11eb-9375-7249b806a1a6.png)
+
+위의 submit 에는 다음과같은 이벤트리스너가 걸려있다.
+
+```javascript
+<form onsubmit="
+store.dispatch({type:'create', payload:{title:title, desc:desc}})">
+```
+
+action 이 dispatch 에 전달, dispatch 가 reducer 호출할 때 현재의 state 와 action (dispatch 를 통해서 보낸 데이터)
+
+```javascript
+function reducer(state, action) {
+  if (action.type === "create") {
+    var newContents = oldState.contents.concat();
+    var newMaxId = oldState.maxId + 1;
+    newContents.push({ id: newMaxId });
+    return Object.assign({}, state, {
+      contents: newContents,
+      maxId: newMaxId,
+      mode: "read",
+      selectedId: newMaxID,
+    });
+  }
+}
+```
+
+reducer 는 state 를 입력값으로 받고, action 을 참조해서 새로운 state 값을 만들어내서 return 해주는 state를 가공하는 가공자이다.
