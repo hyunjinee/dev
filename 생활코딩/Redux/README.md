@@ -59,3 +59,4 @@ function reducer(state, action) {
 ```
 
 reducer 는 state 를 입력값으로 받고, action 을 참조해서 새로운 state 값을 만들어내서 return 해주는 state를 가공하는 가공자이다.
+![캡처3](https://user-images.githubusercontent.com/63354527/105117574-0ff12b80-5b10-11eb-9e71-8a55bf7e9e98.PNG)
