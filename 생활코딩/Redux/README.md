@@ -31,3 +31,4 @@ store.subscribe(render);
 ```
 
 store을 구독하면, state 값이 바뀔때마다 렌더함수를 호출 할 수 있게된다.
+![캡처2](https://user-images.githubusercontent.com/63354527/105116449-24342900-5b0e-11eb-9375-7249b806a1a6.png)
