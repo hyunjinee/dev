@@ -1,13 +1,15 @@
 # 소
+
 ![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/63354527/105571240-e7786400-5d91-11eb-9342-b0ac7ec2b8f0.gif)
 
-
 [소 구경가기!](https://determined-mccarthy-ae3468.netlify.app)
+
 ## 소를 다루면서 배운 것들
 
 ### position absolute 의 특징
 
 ![ezgif com-gif-maker (6)](https://user-images.githubusercontent.com/63354527/105566664-bfc4d400-5d70-11eb-9189-4afade8ad2e3.gif)
+
 position absolute 적용시 컨텐츠 크기 만큼으로 사이즈가 줄어든다.
 원래는 block 레벨의 div였는데 자기 사이즈만큼으로 줄은 것을 알수있다 확인하려면 백그라운드 속성을 준다.
 
