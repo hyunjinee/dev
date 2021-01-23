@@ -1,4 +1,5 @@
 # 소
+![ezgif com-gif-maker (7)](https://user-images.githubusercontent.com/63354527/105571240-e7786400-5d91-11eb-9342-b0ac7ec2b8f0.gif)
 
 
 [소 구경가기!](https://determined-mccarthy-ae3468.netlify.app)
