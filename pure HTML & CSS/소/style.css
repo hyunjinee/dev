@@ -1,0 +1,28 @@
+:root {
+  --primary-color: saddlebrown;
+  --secondary-color: burlywood;
+}
+/* reset */
+body {
+  margin: 0;
+}
+h1 {
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+/* Layouts */
+.center {
+  background-color: aqua;
+  position: absolute;
+  /* position absolute 적용시 컨텐츠 크기 만큼으로 사이즈가 줄어든다. 
+  원래는 block 레벨의 div였는데 자기 사이즈만큼으로 줄은 것을 알수있다 확인하려면 백그라운드 속성을 준다.*/
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Design */
+body {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
