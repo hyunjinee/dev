@@ -1,0 +1,64 @@
+/* CSS Reset */
+body,
+h1,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+h1 {
+  font-size: 100%;
+  font-weight: normal;
+}
+a {
+  color: inherit;
+  /* 부모의 색깔 상속 */
+  text-decoration: none;
+}
+
+body {
+  background-color: #111;
+  color: #999;
+}
+.portrait {
+  background-image: url(./images/profile.png);
+
+  padding-top: 56.25%;
+  /* 16: 9 비율 */
+  /* padding 은 너비 기준으로 높이를 56.25퍼센트로 만들 수 있게 해준다. */
+  background-size: cover;
+  background-position: center;
+}
+.profile {
+  padding: 7%;
+}
+.profile-header,
+.profile-section {
+  padding-bottom: 7%;
+}
+.profile-header {
+}
+.name {
+  font-size: 30px;
+  line-height: 1.5;
+  font-style: italic;
+  /* 만약 fontsize 가 30이면 line height 가 1일때 줄간격은 30px 이다. */
+}
+.name-job {
+  display: inline-block;
+  vertical-align: top;
+  height: 1.5em;
+  overflow: hidden;
+  padding-right: 0.5em;
+}
+.name-job-list {
+  margin-top: -1.5em;
+}
+.name-title {
+  font-size: 1.5em;
+  line-height: 1;
+  /* 자신의 부모인  name 의 fontsize 가 상속되어 넘어오고 거기의 1.5 배 */
+}
