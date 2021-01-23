@@ -1,5 +1,7 @@
 # 소
 
+
+[소 구경가기!](https://determined-mccarthy-ae3468.netlify.app)
 ## 소를 다루면서 배운 것들
 
 ### position absolute 의 특징
