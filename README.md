@@ -9,3 +9,4 @@
 - `2020-01` [Redux](https://github.com/HYUNJINE/Frontend/tree/master/%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A9/Redux): 생활코딩 Redux 수업
 - `2020-01` [소](https://github.com/HYUNJINE/Frontend/tree/master/pure%20HTML%20%26%20CSS/%EC%86%8C): pure html & css 로 구현한 소  
 - `2020-01` [Learning JavaScript](https://github.com/HYUNJINE/Frontend/tree/master/JavaScript/javascript%20books/Learning%20JavaScript): 자바스크립트 책 읽기
+- `2020-01` [Node.js 공식문서](https://github.com/HYUNJINE/Frontend/tree/master/JavaScript/%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C/Node.js): 공식문서 읽기
