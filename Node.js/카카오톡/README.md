@@ -1,2 +1,2 @@
 # 카카오톡
-![ezgif com-gif-maker (8)](https://user-images.githubusercontent.com/63354527/106094789-ee2e1f00-6175-11eb-8e95-d4c914d4ccb8.gif)
+![ezgif com-gif-maker (9)](https://user-images.githubusercontent.com/63354527/106094916-351c1480-6176-11eb-9ec6-6d41d02d5d03.gif)
