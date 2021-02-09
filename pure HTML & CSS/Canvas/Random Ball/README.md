@@ -43,7 +43,15 @@ window.addEventListener("mousemove", function (event) {
 });
 ```
 
-resize 되었을 때는 캔버스의 길이와 넓이가 바뀌므로 다시 브라우저의 넓이와 높이로 바꾸어주고, 공들을 초기화 시켜야한다!
+resize 되었을 때는 캔버스의 길이와 넓이가 바뀌므로 다시 브라우저의 넓이와 높이로 바꾸어주고, 공들을 초기화 시켜야한다! 반응형으로 만들기
+
+```javascript
+window.addEventListener("resize", function () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  init();
+});
+```
 
 다음은 중요한 부분인 Circle class부분이다.
 
