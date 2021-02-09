@@ -11,4 +11,4 @@
 - `2020-01` [Learning JavaScript](https://github.com/HYUNJINE/Frontend/tree/master/JavaScript/javascript%20books/Learning%20JavaScript): 자바스크립트 책 읽기
 - `2020-01` [Node.js 공식문서](https://github.com/HYUNJINE/Frontend/tree/master/JavaScript/%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C/Node.js): 공식문서 읽기
 - `2020-01` [코로나 확진자 수 위젯](https://github.com/HYUNJINE/Frontend/tree/master/JavaScript/Scriptable/%EC%BD%94%EB%A1%9C%EB%82%98%20%ED%99%95%EC%A7%84%EC%9E%90%20%EC%88%98%20%EC%9C%84%EC%A0%AF): Scriptable을 이용하여 코로나 확진자 수 위젯 만들기
-- `2020-02` [Random Ball](https://github.com/HYUNJINE/Frontend/tree/master/pure%20HTML%20%26%20CSS/Canvas/Random%20Ball): Canvas 활용해서 랜덤으로 생성된 공들이 이동하는 화면 만들기
+- `2020-02` [Random Ball](https://github.com/HYUNJINE/Frontend/tree/master/pure%20HTML%20%26%20CSS/Canvas/Random%20Ball): HTML Canvas 활용해서 랜덤으로 생성된 공들이 이동하는 화면 만들기
