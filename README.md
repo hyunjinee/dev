@@ -15,3 +15,4 @@
 - `2020-02` [Gravity](https://github.com/HYUNJINE/Frontend/tree/master/pure%20HTML%20%26%20CSS/Canvas/gravity): HTML Canvas 이용해서 중력 구현
 - `2020-02` [모던 웹을 위한 Node.js 프로그래밍](https://github.com/HYUNJINE/Frontend/tree/master/JavaScript/javascript%20books/%EB%AA%A8%EB%8D%98%20%EC%9B%B9%EC%9D%84%20%EC%9C%84%ED%95%9C%20Node.js%20%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/code): Node.js에 대한 이해
 - `2020-02` [Collision Detection](https://github.com/HYUNJINE/Frontend/tree/master/pure%20HTML%20%26%20CSS/Canvas/collision): HTML Canvas 위에서의 충돌 처리에 대하여
+- `2020-02` [Circular Motion](https://github.com/HYUNJINE/Frontend/tree/master/pure%20HTML%20%26%20CSS/Canvas/Circular%20Motion): HTML Canvas 원형 효과
