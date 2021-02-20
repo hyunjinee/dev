@@ -26,7 +26,8 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
-
+*.jpg
+dist/
 packages/react-devtools-core/dist
 packages/react-devtools-extensions/chrome/build
 packages/react-devtools-extensions/chrome/*.crx
@@ -41,4 +42,6 @@ packages/react-devtools-shell/dist
 packages/react-devtools-scheduling-profiler/dist
 
 
-*.jpg
+*.lock
+
+package-lock.json
