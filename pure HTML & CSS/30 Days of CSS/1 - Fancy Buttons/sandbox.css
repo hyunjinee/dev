@@ -1,0 +1,130 @@
+/* ========================================
+
+    CODE YOUR STYLES BELOW!
+
+   ====================================== */
+
+.facebook-style-btn {
+  border-radius: 2px;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+}
+
+.facebook-style-dark {
+  box-shadow: inset 0 1px 0 0 #4d73bf;
+  background: #4267b2;
+  border: 1px solid #4267b2;
+  color: white;
+  text-shadow: 0 1px 0 #3359a5;
+}
+
+.facebook-style-dark:hover {
+  background: #2b54a7;
+}
+
+.facebook-style-dark:active {
+  background: #1d4698;
+  border-color: #1d4698;
+}
+
+.facebook-style-light {
+  background: #f6f7f8;
+  border: 1px solid #ced0d4;
+  color: #4b4f56;
+}
+.facebook-style-light:hover {
+  background: #e9ebee;
+}
+.facebook-style-light:active {
+  background: #d8dade;
+  background-color: #d8dade;
+}
+
+/* 3D Button */
+
+.btn-3d-1 {
+  position: relative;
+  background: orangered;
+  border: none;
+  color: white;
+  padding: 15px 24px;
+  font-size: 1.4rem;
+  box-shadow: -6px 6px 0 hsl(16, 100%, 30%);
+  outline: none;
+}
+.btn-3d-1:hover {
+  background: hsl(16, 100%, 45%);
+}
+.btn-3d-1:active {
+  background: hsl(16, 100%, 40%);
+  top: 3px;
+  left: -3px;
+  box-shadow: -3px 3px 0 hsl(16, 100%, 30%);
+}
+.btn-3d-1::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+
+  border: 6px solid transparent;
+  border-right: 6px solid hsl(16, 100%, 30%);
+  border-left-width: 0;
+  top: 0;
+  left: -6px;
+}
+.btn-3d-1::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+
+  border: 6px solid transparent;
+  border-top: 6px solid hsl(16, 100%, 30%);
+  border-bottom-width: 0;
+  bottom: -6px;
+  right: 0;
+}
+.btn-3d-1:active::before {
+  border: 3px solid transparent;
+  border-right: 3px solid hsl(16, 100%, 30%);
+}
+.btn-3d-1:active::after {
+  border: 3px solid transparent;
+  border-top: 3px solid hsl(16, 100%, 30%);
+}
+
+/* 3D Button 2 */
+
+.btn-3d-2 {
+  position: relative;
+  background: #ecd300;
+  background: radial-gradient(hsl(54, 100%, 50%), hsl(54, 100%, 40%));
+  font-size: 1.4rem;
+  text-shadow: 0 -1px 0 #c3af07;
+  color: white;
+  border: 1px solid hsl(54, 100%, 40%);
+  border-radius: 100%;
+  height: 120px;
+  width: 120px;
+  z-index: 4;
+  outline: none;
+  box-shadow: inset 0 1px 0 hsl(54deg 100% 50%), 0 2px 0 hsl(54deg 100% 20%),
+    0 3px 0 hsl(54deg 100% 18%), 0 4px 0 hsl(54deg 100% 16%),
+    0 5px 0 hsl(54deg 100% 14%), 0 6px 0 hsl(54deg 100% 12%),
+    0 7px 0 hsl(54deg 100% 10%), 0 8px 0 hsl(54deg 100% 8%),
+    0 9px 0 hsl(54deg 100% 6%);
+}
+.btn-3d-2:hover {
+  background: radial-gradient(hsl(54, 100%, 45%), hsl(54, 100%, 30%));
+}
+.btn-3d-2:active {
+  background: radial-gradient(hsl(54, 100%, 43%), hsl(54, 100%, 33%));
+  top: 2px;
+  box-shadow: inset 0 1px 0 hsl(54deg 100% 50%), 0 2px 0 hsl(54deg 100% 20%),
+    0 3px 0 hsl(54deg 100% 18%), 0 4px 0 hsl(54deg 100% 16%),
+    0 5px 0 hsl(54deg 100% 14%), 0 6px 0 hsl(54deg 100% 12%),
+    0 7px 0 hsl(54deg 100% 10%);
+}
