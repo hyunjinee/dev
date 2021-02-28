@@ -18,3 +18,4 @@
 - `2020-02` [Circular Motion](https://github.com/HYUNJINE/Frontend/tree/master/pure%20HTML%20%26%20CSS/Canvas/Circular%20Motion): HTML Canvas 원형 효과
 - `2020-02` [TCP/IP 쉽게, 더쉽게](https://github.com/HYUNJINE/Frontend/tree/master/Network/Books/TCP%20IP%20%EC%89%BD%EA%B2%8C%2C%20%EB%8D%94%20%EC%89%BD%EA%B2%8C): 네트워크 입문 책 읽기
 - `2020-02` [Typechain](https://github.com/HYUNJINE/Frontend/tree/master/%EA%B0%95%EC%9D%98/nomadcoders/TypeScript): building a simple blockchain with typescript
+- `2020-02` [SPA with pure js](https://github.com/HYUNJINE/Frontend/tree/master/JavaScript/Web/SPA/Pure%20JS%20SPA): first SPA with pure js
