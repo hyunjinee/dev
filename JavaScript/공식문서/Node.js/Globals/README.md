@@ -74,3 +74,32 @@ console.log(__dirname);
 
 현재 모듈에 대한 참조이다. 특히, module.exports는 모듈이 무엇을 외부에 노출해서 require()로 사용할 수 있게 할 것인지 정의하는데 사용한다.
 module는 실제로 전역이 아니라 각 모듈의 지역범위이다.
+더 자세한 내용은 [module system documentation](https://github.com/HYUNJINE/Frontend/tree/master/JavaScript/%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C/Node.js/Modules)참고
+
+## exports
+
+module.exports에 대한 더 간략화된 참조이다. 언제 exports를 사용하고 언제 module.exports를 사용하는지에 대한 자세한 내용은 [module system documentation](https://github.com/HYUNJINE/Frontend/tree/master/JavaScript/%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C/Node.js/Modules)참고
+
+exports는 실제로 전역이 아니라 각 모듈의 지역 범위이다.
+
+## setTimeout(cb, ms)
+
+최소 ms밀리초 후에 콜백 cb를 실행한다. 실제 지연시간은 OS타이머의 크기와 시스템 부하 같은 외부 요소에 달려있다.
+
+타임아웃은 1-2,147,483,647의 범위여야한다. 값이 이 범위 밖이면 타임아웃은 1밀리 초로 바뀐다. 대략 말해서 타이머는 24.8일 이상이 될수 없다.
+타이머를 나타내는 불투명한 값을 반환한다.
+
+## clearTimeout(t)
+
+이전에 setTimeout()로 생성된 타이머를 멈춘다. 콜백은 실행되지 않을 것이다.
+
+## setInterval(cb, ms)
+
+ms 밀리초마다 반복적으로 cb를 실행한다. 실제 간격은 OS 타이머의 크기나 시스템 부하 같은 외부 요소에 따라 다양하다. 시간 간격은 ms보다 작을 수 없다.
+간격은 1-2,147,483,647의 범위여야 한다. 값이 이 범위 밖이면 1밀리 초로 바뀐다. 대략 말해서 타이머는 24.8일 이상 될 수 없다. 타이머를 나타내는 불투명한 값을 반환한다.
+
+## clearInterval(t)
+
+이전에 setInterval()로 생성된 타이머를 멈춘다. 콜백은 실행하지 않을 것이다.
+
+timer 함수는 전역 변수이다. timers부분을 보자
