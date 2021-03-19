@@ -20,5 +20,6 @@
 - `2020-02` [Typechain](https://github.com/HYUNJINE/Frontend/tree/master/%EA%B0%95%EC%9D%98/nomadcoders/TypeScript): building a simple blockchain with typescript
 - `2020-02` [SPA with pure js](https://github.com/HYUNJINE/Frontend/tree/master/JavaScript/Web/SPA/Pure%20JS%20SPA): first SPA with pure js
 
-
 Git활용 방법이 부족하다고 생각해서, 깃을 다시 공부했다. 지금까지는 너무 저장소처럼 그냥 업로드 한 일을 업로드 했지만, 이제 부터 의미가 있는 커밋을 하자!!
+
+- `2020-03` [arkanoid](https://github.com/hyunjinee/arkanoid): TypeScript 타입들에 익숙해지고, 파일들을 모듈화해서 관리할 수 있게되었다.
