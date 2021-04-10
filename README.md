@@ -23,3 +23,6 @@
 Git활용 방법이 부족하다고 생각해서, 깃을 다시 공부했다. 지금까지는 너무 저장소처럼 그냥 업로드 한 일을 업로드 했지만, 이제 부터 의미가 있는 커밋을 하자!!
 
 - `2020-03` [arkanoid](https://github.com/hyunjinee/arkanoid): TypeScript 타입들에 익숙해지고, 파일들을 모듈화해서 관리할 수 있게되었다.
+- `2020-03` [memories](https://github.com/hyunjinee/memories): CRUD가 가능한 소셜미디어 어플리케이션!
+- `2020-04` [chat](https://github.com/hyunjinee/chatapp): 채팅기능을 구현하면서, socket.io 를 공부했다.
+- `2020-04` [flexfrog](https://github.com/hyunjinee/Frontend/tree/master/pure%20HTML%20%26%20CSS/Flex%20Frog): css flex에대해 깊이 이해했다.
