@@ -26,3 +26,4 @@ Git활용 방법이 부족하다고 생각해서, 깃을 다시 공부했다. �
 - `2020-03` [memories](https://github.com/hyunjinee/memories): CRUD가 가능한 소셜미디어 어플리케이션!
 - `2020-04` [chat](https://github.com/hyunjinee/chatapp): 채팅기능을 구현하면서, socket.io 를 공부했다.
 - `2020-04` [flexfrog](https://github.com/hyunjinee/Frontend/tree/master/pure%20HTML%20%26%20CSS/Flex%20Frog): css flex에대해 깊이 이해했다.
+- `2020-04` [50projects50days]
