@@ -19,3 +19,9 @@
 `docker exec -it node-app bash` 이거 인터렉티브모드로 실행하고 bash쉘 까지 설정해주면 파일시스템 볼수 있는 환경으로 진입
 
 `docker run -v pathtofolderonlocation:pathtofolderonconatiner -p 3000:3000 -d --name node-app node-app-image` 내가있는 위치랑 컨테이너 폴더를 연동해준다. %cd% current working directory
+
+`printenv` 리눅스에서 환경변수출력
+
+`--env PORT=4000` 도커에서 환경변수설정하는 법.
+
+ `docker-compose up -d` compose 파일이용 빌드같은데..?
