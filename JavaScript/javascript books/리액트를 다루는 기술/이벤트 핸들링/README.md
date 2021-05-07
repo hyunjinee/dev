@@ -36,3 +36,13 @@ const object = {
 }
 ```
 결과는 {'variantKey': 'value'} 이다.
+
+```js
+handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+        this.handleClick();
+    }
+}
+```
+
+e.target.name 을 쓰면 위와같이 useState를 쓸 때 인풋 값들이 들어있는 form 객체를 사용해 주면 된다.
