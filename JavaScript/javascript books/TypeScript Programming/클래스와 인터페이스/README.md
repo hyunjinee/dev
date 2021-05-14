@@ -164,6 +164,81 @@ ambleAround(podle) // ok
 ```
 
 
+
+
 함수의 관점에서 두 클래스가 .trot을 구현하며 서로 호환되므로 아무 문제가 없다. 이름으로 클래스의 타입을 구분하는 언어라면, 에러를 발생시키겠지만 타입스크립트는 구조를 기준으로 삼으므로 이 코드는 정상 동작한다.
 
 클래스를 다룰 때는 이 변수는 이 클래스의 인스턴스여야 한다라고 표현할 수 있는 방법이 필요한데, 이는 열거형도 마찬가지이다 .
+함수와 타입처럼 클래스와 인터페이스도 기본값과 상한/하한 설정을 포함한 다양한 제네릭 타입 매개변수 기능을 지원한다. 제네릭 타입의 범위는 클래스나 인터페이스 전체가 되게 할 수 도 있고 특정 메서드로 한정할 수도 있다.
+
+constructor 에서는 제네릭 타입을 선언할 수 없음을 기억하자. constructor 대신 class선언에 사용해야한다.
+정적 메서드는 클래스 인스턴스 변수에 값 수준에서 접근할수 없듯이 클래스 수준의 제네릭을 사용할 수 없다. 따라서 정적 메서드에서 선언한 자신만의 제네릭을 갖는다. 인터페이스에도 제네릭을 사용할 수 있다.
+```ts
+interfface MyMap<K, V> {
+    get(key: K): V
+    set(key: K, value: V) : void
+}
+```
+### mixin
+js와 ts는 trait나 mixin 키워드를 제공하진 않지만 손쉽게 직접 구현할 수 있다. 두 키워드 모두 둘이상의 클래스를 상속받는 다중 상속과 관련된 기능을 제공하며, 역할 지향 프로그래밍을 제공한다. 역할 지향 프로그래밍에서는 이것은 Shape이에요.라고 표현하는 대신 측정할 수 있어요. 네게의 변을 가지고있어요 처럼 속성을 묘사하는 방식을 사용한다. 즉 is-a관계대신 can has-a관계를 사용한다.
+
+
+
+### 데코레이터
+데코레이터는 타입스크립트의 실험적 기능으로 클래스, 클래스 메서드 프로퍼티, 메서드 매개변수를 활용한 메타프로그래밍에 깔끔한 문법을 제공한다. 데코레이터는 장식하는 대상의 함수를 호출하는 기능을 제공하는 문법이다.
+데코레이터는 장식하는 대상의 함수를 호출하는 기능을 제공하는 문법이다. 
+experimentalDecorators 테코레이터는 아직 실험 단계의 기능이다. 즉 미래에도 호환된다는 보장이 없고 아예 타입스크립트에서 삭제될수 있으므로 TSC플래그를 따로 설정해야 사용할 수 있다. 
+
+### final타입스크립트는 클래스나 메서드에 final키워드를 지원하지 않지만 클래스에서 final 키워드 효과를 흉내내기 어렵지 않다. 객체 지향 언어를 많이 사용해보지 않은 독자를 위해 설명하자면 final키워드는 클래스나 메서드를 확장하거나 오버라이드할 수 없게 만드는 기능이다.
+
+타스에서는 비공개 생성자(private constructor)를 이용해서 final 클래스를 흉내낼 수 있다.
+
+```ts
+class MessageQueue {
+    private contstructor(private messages:string[]) {}
+
+}
+
+class BadQueue extends MessageQueue {}  // 클래스를 확장할수 없음 클래스의 생성자가 private 으로 설정됨
+```
+
+클래스 상속만 막아야하는 상황이지만 비공개 생성자를 이용하면 클래스를 인스턴스화 하는 기능도 같이 사라진다. 반면, final 클래스는 상속만막을뿐 인스턴스는 정상적으로 만들수 있다.
+```ts
+class MessageQueue {
+    private constructor(private messages: string[]) {}
+    static create(messages: string[]) {
+        return new MessageQueue(messages);
+    }
+}
+```
+
+
+### builder pattern
+
+갑자기 빌더패턴에 대해 알아보자. 빌더 패턴으로 객체의 생성과 객체 구현방식을 분리할 수 있다.
+제이쿼리나 ES6의 MAP,SET 등의 자료구조를 사용해봤다면 빌더 패턴에 친숙할 것이다.
+```ts
+new RequestBuilder()
+    .setURL('/users')
+    .setMethod('get')
+    .setData({firstName: 'Anna'})
+    .send()
+```
+빌더 패턴 클래스에 대해 한번 적어보겠다.
+```ts
+class RequestBuilder {
+    private data: object | null = null
+    private method: 'get' | 'post' | null = null
+    private url: string | null = null
+
+    setMethod(method: 'get' | 'post') : this {
+        this.method = method
+        return this
+    }
+    // 다른 메서도도 동일
+
+
+}
+
+```
+

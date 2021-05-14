@@ -24,4 +24,8 @@
 
 `--env PORT=4000` 도커에서 환경변수설정하는 법.
 
- `docker-compose up -d` compose 파일이용 빌드같은데..?
+ `docker-compose up -d` compose 파일이용 빌드같은데..? 
+
+ `docker-compose down -v` compose up 시키면 빌드랑 컨테이너까지 같이실행되는데 다운시키면 컨테이너 내림
+
+ `docker-compose up -d --build` 파일이 바뀌었을때 컴포즈는 바뀐줄 모른다 따라서 다시 빌드하라고 명시해주어야 빌드하고 아니면 그냥 이미지를 활용해서 컨테이너를 올린다.
