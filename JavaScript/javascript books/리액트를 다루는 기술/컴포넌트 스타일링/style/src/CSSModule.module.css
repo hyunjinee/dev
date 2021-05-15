@@ -1,0 +1,20 @@
+.wrapper {
+    background: black;
+    padding: 1rem;
+    color: white;
+    font-size: 2rem;
+}
+
+/*  자동으로 고유해지므로 흔히 사용되는 단어를 클래스이름으로 사용가능 */
+
+:global .something {
+    font-weight: 800;
+    color: aqua;
+}
+
+
+.inverted {
+    color: black;
+    background: white;
+    border: 1px solid black;
+}
