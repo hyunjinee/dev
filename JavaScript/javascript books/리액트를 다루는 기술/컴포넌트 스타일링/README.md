@@ -1,9 +1,6 @@
 # component styling
 
-
 node-sass 는 Sass를 CSS로 변환해준다.
-
-
 
 ```js
 import React from 'react';
@@ -14,7 +11,7 @@ const sizes= {
     tablet: 768
 }
 
-const media = Object.keys(sizes).reduce((acc, label) => 
+const media = Object.keys(sizes).reduce((acc, label) =>
     acc[label] = (...args) => css`
         @media (max-width: ${sizes[label] / 16}em) {
             ${css(...args)}
@@ -24,3 +21,4 @@ const media = Object.keys(sizes).reduce((acc, label) =>
     `
     return acc;
 , {})
+```
