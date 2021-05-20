@@ -58,3 +58,5 @@ const originalState = {
 const nextState = update(originalState);
 console.log(nextState) // {value :2, foo: 'bar'}
 ```
+
+
