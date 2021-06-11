@@ -1,0 +1,17 @@
+{
+  "name": "TypeScript",
+  "version": "1.0.0",
+  "description": "learning typescript",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc-watch --onSuccess \" node dist/index.js\""
+  },
+  "devDependencies": {
+    "tsc-watch": "^4.2.9"
+  },
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "crypto.js": "^2.0.2"
+  }
+}
