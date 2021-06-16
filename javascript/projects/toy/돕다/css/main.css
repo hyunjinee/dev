@@ -1,0 +1,641 @@
+@charset "utf-8";
+
+/*layout*/
+body {
+  font-family: "NanumSquare", sans-serif !important;
+  font-size: 14px;
+  color: #4e4e4e;
+  line-height: 1.4;
+}
+.wrap {
+  width: 100%;
+  min-width: 1100px;
+}
+
+/*header*/
+header {
+  width: 100%;
+  height: 120px;
+  line-height: 120px;
+  padding: 0 60px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+}
+header .logo {
+  display: block;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -6px;
+  color: #39312b;
+  float: left;
+}
+header nav {
+  float: right;
+}
+/* 리스트는 블럭속성이므로 inline-block준다 */
+header nav .gnb li {
+  display: inline-block;
+  margin-left: 60px;
+}
+header nav .gnb li a {
+  display: block;
+  font-size: 18px;
+  text-transform: uppercase;
+  position: relative;
+}
+header nav .gnb li a:after {
+  content: "";
+  width: 0%;
+  height: 1px;
+  position: absolute;
+  background: #888;
+  bottom: 47px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.5s;
+}
+header nav .gnb li a:hover:after,
+header nav .gnb li a:focus:after {
+  width: 100%;
+}
+
+/* visual */
+section.visual {
+  margin-top: 120px;
+  padding-bottom: 50px;
+  position: relative;
+}
+section.visual::before {
+  content: "";
+  width: 53%;
+  height: 400px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #f0f0f0;
+}
+section.visual .img {
+  width: 94%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+section.visual .img img {
+  width: 100%;
+}
+section.visual .title {
+  position: absolute;
+  top: 40%;
+  left: 8%;
+  color: #fff;
+}
+section.visual .title h2 {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+section.visual .title p {
+  font-size: 20px;
+  font-weight: 300;
+}
+section.visual .menu {
+  position: absolute;
+  bottom: 15%;
+  left: 8%;
+}
+section.visual .menu li {
+  float: left;
+  margin-right: 60px;
+}
+section.visual .menu li a {
+  display: block;
+  color: #fff;
+}
+section.visual .menu li a p {
+  float: left;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.6;
+}
+section.visual .menu li a p span {
+  display: block;
+  font-weight: 100;
+  font-size: 15px;
+  color: #aaaaaa;
+}
+section.visual .menu li a .arrow {
+  display: block;
+  float: right;
+  margin-top: 10px;
+  margin-left: 20px;
+  position: relative;
+  z-index: 1;
+}
+section.visual .menu li a .arrow::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background: rgba(252, 252, 252, 0.4);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: -1;
+  transition: all 0.2s;
+}
+section.visual .menu li a:hover .arrow::before,
+section.visual .menu li a:focus .arrow::before {
+  right: 0;
+  top: 0;
+}
+
+section.visual .img .mask {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.16);
+}
+section.visual .img .mask.a {
+  left: 0%;
+}
+section.visual .img .mask.b {
+  left: 25%;
+}
+section.visual .img .mask.c {
+  left: 50%;
+}
+section.visual .img .mask.d {
+  left: 75%;
+}
+
+@keyframes mask {
+  0% {
+    width: 25%;
+    background: #000;
+  }
+  50% {
+    width: 25%;
+    background: #000;
+  }
+  99% {
+    background: #000;
+  }
+}
+section.visual .img .mask.a {
+  animation: mask;
+  animation-duration: 0.4s;
+}
+section.visual .img .mask.b {
+  animation: mask;
+  animation-duration: 0.6s;
+}
+section.visual .img .mask.c {
+  animation: mask;
+  animation-duration: 0.8s;
+}
+section.visual .img .mask.d {
+  animation: mask;
+  animation-duration: 1s;
+}
+
+@keyframes slid-up {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+
+section.visual .title h2 {
+  animation-name: slid-up;
+  animation-duration: 1.5s;
+}
+section.visual .title p {
+  animation-name: slid-up;
+  animation-duration: 2.2s;
+}
+section.visual .menu {
+  animation-name: slid-up;
+  animation-duration: 2.8s;
+}
+section.visual .img img {
+  transform: scale(1);
+  animation-name: scaleani;
+  animation-duration: 2s;
+}
+
+@keyframes scaleani {
+  0% {
+    transform: scale(1.3);
+  }
+  30% {
+    transform: scale(1.3);
+  }
+}
+
+/* about */
+section.about {
+  width: 95%;
+  margin: 40px auto;
+  text-align: center;
+  position: relative;
+}
+section.about img {
+  width: 100%;
+}
+section.about .inner {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section.about .inner h2 {
+  font-size: 30px;
+  color: #fff;
+}
+section.about .inner .line {
+  width: 35%;
+  margin: 80px auto 30px;
+  position: relative;
+  /* background: yellow; */
+}
+section.about .inner .line span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+section.about .inner .line li {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+}
+section.about .inner .line li.a {
+  left: 0;
+  top: -2px;
+}
+section.about .inner .line li.b {
+  left: 50%;
+  transform: translate(-50%);
+  top: -2px;
+}
+
+section.about .inner .line li.c {
+  right: 0;
+  top: -2px;
+}
+section.about .inner .line li::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.71);
+  position: absolute;
+  /* left: 50%;
+  top: 50%;
+  transform: (-50%, -50%); */
+  animation: dot 1.5s infinite;
+  /* margin-top: -3px; */
+  margin-left: -3px;
+}
+
+@keyframes dot {
+  100% {
+    opacity: 1;
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+section.about .inner ul {
+  width: 60%;
+  margin: 0 auto;
+}
+section.about .inner ul li {
+  color: #c5c5c5;
+  float: left;
+  width: 33.3333%;
+  font-size: 17px;
+  font-weight: 100;
+}
+section.about .inner ul li h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: normal;
+  color: #fff;
+}
+/* animation */
+@keyframes opacity-ani {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+}
+@keyframes slid-up2 {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+section.about .inner h2 {
+  animation-name: slid-up;
+  animation-duration: 0.8s;
+}
+section.about .inner .line span {
+  animation-name: opacity-ani;
+  animation-duration: 0.8s;
+}
+section.about .inner .line li.a {
+  animation-name: opacity-ani;
+  animation-duration: 1.2s;
+}
+section.about .inner .line li.b {
+  animation-name: opacity-ani;
+  animation-duration: 1.6s;
+}
+section.about .inner .line li.c {
+  animation-name: opacity-ani;
+  animation-duration: 2s;
+}
+section.about .inner ul li {
+  animation-name: slid-up2;
+  animation-duration: 2.4s;
+}
+section.about .inner ul li:nth-child(2) {
+  animation-name: slid-up2;
+  animation-duration: 2.8s;
+}
+section.about .inner ul li:nth-child(3) {
+  animation-name: slid-up2;
+  animation-duration: 3.2s;
+}
+
+/* section.premium */
+section.premium {
+  width: 95%;
+  margin: 40px auto;
+  padding: 100px 0;
+  box-sizing: border-box;
+  height: 1020px;
+  background: url(../img/con2_bg.jpg) no-repeat center/cover;
+  /* background-image: url(../img/con2_bg.jpg)
+
+background-repeat: no-repeat;
+
+background-position:center 
+
+background-size: cover;   축약형 */
+  position: relative;
+}
+section.premium .txtImg {
+  position: absolute;
+  left: 0;
+  top: 20%;
+  display: block;
+  width: 100%;
+  animation-name: widthAni;
+  animation-duration: 1.5s;
+  overflow: hidden;
+  /* 0~30 넘치는부분 보이지 않게 하기위해 그리고,  자식의 img 는 span 이width가 0이어도 튀어나온다.(본래크기가있기 때문에 부모를 뚫고 나옴*/
+  /*overflow hidden 을 해주는 이유는 txtImg가 width 가 0되었을 때 넘치는 안에 이미지가 튀어나올 것 이므로,
+   span 으로 감쌌으니까 넘치는 거 없애주기위해 overflow hidden사용 */
+}
+@keyframes widthAni {
+  0% {
+    width: 0%;
+    /* span 의 width 가 0 인거니까 안에있는 이미지 안보이게하려고 overflow hidden 준다. */
+  }
+  30% {
+    width: 0%;
+  }
+}
+section.premium .title {
+  position: absolute;
+  left: 8%;
+  top: 35%;
+}
+section.premium .title h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+section.premium .title p {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+section.premium .title a {
+  font-size: 24px;
+  display: inline-block;
+  position: relative;
+}
+section.premium .title a::before {
+  content: "";
+  width: 80px;
+  height: 15px;
+  background-color: rgba(0, 0, 0, 0.08);
+  position: absolute;
+  bottom: 0;
+  transition: 0.3s;
+}
+section.premium .title a:hover:before,
+section.premium .title a:focus:before {
+  width: 0%;
+}
+
+section.premium .banner li {
+  position: absolute;
+  box-shadow: 5px 6px 15px rgba(3, 3, 3, 0.4);
+  width: 15%;
+}
+section.premium .banner li img {
+  width: 100%;
+}
+section.premium .banner li:nth-child(1) {
+  left: 45%;
+  top: 15%;
+  animation-name: slid-up;
+  animation-duration: 1.2s;
+}
+section.premium .banner li:nth-child(2) {
+  left: 37%;
+  top: 50%;
+  animation-name: slid-up;
+  animation-duration: 1.8s;
+}
+section.premium .banner li:nth-child(3) {
+  left: 55%;
+  top: 62%;
+  animation-name: slid-up;
+  animation-duration: 2.2s;
+}
+section.premium .banner li:nth-child(4) {
+  right: 2%;
+  width: 32%;
+  max-width: 580px;
+  animation-name: slid-up;
+  animation-duration: 1.5s;
+}
+
+/* section.global */
+section.global {
+  width: 95%;
+  margin: 40px auto 0;
+  padding: 40px 0;
+  text-align: center;
+  position: relative;
+  /* before의 기준을 잡아주기위해 relative */
+}
+section.global::before {
+  content: "";
+  width: 100%;
+  /* global 이 95퍼센트니까 그것에대해서 꽉차게 100%(glbal과 같은크기) */
+  height: 45%;
+  background: #eee;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+section.global .title h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+section.global .title p {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 50px;
+}
+section.global ul {
+  overflow: hidden;
+  /* 자식 요소에게 float 를 줄경우에 부모요소는 높이값을 상실해서 overflow hidden을 준다 */
+  padding-top: 50px;
+}
+section.global ul li {
+  float: left;
+  width: 25%;
+  box-sizing: border-box;
+  padding: 15px;
+}
+section.global ul li:nth-child(1),
+section.global ul li:nth-child(3) {
+  margin-top: -50px;
+}
+section.global ul li a {
+  display: block;
+}
+section.global ul li a .img {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  position: relative;
+  transition: all 0.2s;
+  /* overflow: hidden; */
+}
+/* 위에다가relative 주었으니까 위에꺼가 기준이됨 */
+section.global ul li a .img::after {
+  content: "VIEW";
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 35, 28, 0.8);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 22px;
+  color: #d4d4d4;
+  padding-top: 200px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+section.global ul li a:hover .img,
+section.global ul li a:focus .img {
+  transform: translate(-8px, -8px);
+  box-shadow: 15px 18px 10px rgba(0, 0, 0, 0.35);
+}
+section.global ul li a:hover .img::after,
+section.global ul li a:focus .img::after {
+  opacity: 1;
+}
+section.global ul li a h3 {
+  font-size: 22px;
+  margin: 40px 0 15px;
+}
+section.global ul li a h3 span {
+  display: block;
+  font-size: 18px;
+  font-weight: normal;
+  color: #888;
+}
+section.global ul li a p {
+  font-size: 17px;
+}
+
+/* animation */
+section.global ul li {
+  animation-name: slid-up;
+  animation-duration: 1s;
+}
+section.global ul li:nth-child(2) {
+  animation-name: slid-up;
+  animation-duration: 1.4s;
+}
+section.global ul li:nth-child(3) {
+  animation-name: slid-up;
+  animation-duration: 1.7s;
+}
+section.global ul li:nth-child(4) {
+  animation-name: slid-up;
+  animation-duration: 2s;
+}
+/* footer */
+footer {
+  padding: 80px 0 0;
+  text-align: center;
+}
+footer .sns li {
+  display: inline-block;
+  margin-right: 30px;
+}
+footer .footerLogo {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -6px;
+  color: #39312b;
+  margin: 40px 0 20px;
+}
+footer ul li {
+  font-size: 17px;
+  line-height: 1.4;
+}
+footer ul li .copyright {
+  font-size: 15px;
+  font-weight: 100;
+  /* span 은 inline 이니까 margin이 먹히지 않는다 따라서 block 준다. */
+  display: block;
+  margin-top: 20px;
+  color: #888;
+}
+footer .box {
+  padding: 150px 0;
+  margin-top: 80px;
+  background: url(../img/bottom_bg.jpg) no-repeat center/cover;
+}
+footer .box h2 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: normal;
+  animation-name: slid-up;
+  animation-duration: 1s;
+}
