@@ -135,4 +135,158 @@ store옵션도 있는데 메모리에 세션을 저장하도록되있는 것을 
 
 s%3A의 뒷부분이 실제 암호화된 쿠키 내용이다. 앞에 s%3A가 붙은 경우 이쿠키가 express-session 미들웨어에 의해 암화화된것이라고 생각하면 된다.
 
--
+
+next함수에 인수를 넣는다면 특별한 동작을 한다. route 라는 문자열을 넣으면 다음 라우터의 미들웨어로 바로 이동하고, 그외의 인수를 넣는다면 바로에러처리 미들웨어로 이동한다. 이때의 인수는 에러처리 미들웨어의 err매개변수가 된다. 라우터에서 에러가 발생할 때 에러를 next(err)를 통해 에러처리 미들웨어로 넘길수 있다.
+
+next(err) 
+
+(err,req,res,next) => {}
+
+미들웨어간에 데이터를 전달하는 방법도있다. 세션을 사용한다면 req.session객체에 데이터를 넣어도되지만 세션이 유지되는 동안에 데이터도 계속 유지된다는 단점이있다. 만약 요청이 끝날 때까지만 데이터를 유지하고 싶다면  req객체에 데이터를 넣어두면 된다.
+
+```js
+
+app.use((req,res,next)=> {
+    req.data = '데이터 넣기';
+    next();
+}, (req,res,next) => {
+    console.log(req.data);
+    next();
+}) 
+```
+
+현재 요청이 처리되는 동안req.data를 통해 미들웨어간에 데이터를 공유할 수 있다. 새로운 요청이오면 req.data는 초기화된다.속성명이 꼭 data일 필요는 없지만 다른 미들웨어와 겹치지 않게 조심해야한다. 예를 들어서 속성명을 body로 한다면 req.body body-parser 미들웨어와 기능이 겹친다. 
+
+> app.set과의 차이
+
+app.set으로 익스프레스에서 데이터를 저장할 수 있다고 배웠다. app.get또는 app.set으로 언제 어디서든 데이터를 가져올수 있다. 하지만 app.set을 사용하지않고 req객체에 데이터를 넣어서 다음 미들웨어로 전달하는 이유가있다. app.set은 익스프레스에서 전역적으로 사용되므로 사용자 개개인의 값을 넣기에는 부적절하며 앱전체의 설정을 공유할 때 사용한다. req객체는 요청을 보낸 사용자 개개인에게 귀속되므로req객체를 통해 개인의 데이터를 전달하는 것이 좋다.
+
+미들웨어를 사용할 때 유용한 패턴 한가지가 있다. 미들웨어 안에 미들웨어를 넣는 방식이다.
+
+```js
+app.use(morgan('dev'))
+app.use(req,res,next)=> {
+    morgan('dev')(req,res,next);
+}
+```
+
+
+이 패턴이 유용한 이유는 기존 미들웨어의 기능을 확장할 수 있기 때문이다.
+
+```js
+
+app.use((req,res,next)=> {
+    if (process.env.NODE_ENV === 'production') {
+        morgan('combined')(req,res,next)
+    }else {
+        morgan('dev')(req,res,next)
+    }
+})
+```
+
+### 6.2.7 multer 
+이미지 동영상등을 비롯한 여러가지 파일들을 멀티파트 형식으로 업로드할 때 사용하는 미들웨어이다. 멀티파트 형식이란 다음과같이 enctype이 multipart/form-data인 폼을 통해 업로드하는 데이터의 형식을 의미한다. multer함수의 인수로 설정을 넣는다. storage속성에는 어디에 어떤 이름으로 저장할지를 넣는다. destination 과 filename함수의 req매개변수에는 요청에 대한 정보가, file 객체에는 업로드한 파일에대한 정보가 있다. done 매개변수는 함수이다. 첫번째 인수에는 에러가 있다면 에러를 넣고 두번째 인수에는 실제 경로나 파일 이름을 넣어주면된다. req나 file데이터를 가공해서 done으로 넘기는 형식이다.
+
+```js
+const multer = require('multer')
+
+const upload = multer({
+    storage: multer.disStorage({
+        destination(req,file,done) {
+            done(null, 'uploads/')
+        },
+        filename(req, file, done){ 
+            const ext = path.extanme(file.originalname);
+            done(null, path.basename(file.originalname, ext) + Date.now() + ext;
+
+        }
+    }),
+    limits: {fileSize: 5 * 1024 * 1024}
+})
+```
+
+
+여러 파일을 업로드하는 경우 multiple를 input 태그에 쓴다.
+
+미들웨어는 single 대신 array 로 교체한다.
+업로드 결과도req.file 대신 req.files 배열에 들어있다. 파일을 여러개 업로드하지만  input 태그나 폼 데이터의 키가 다른 경우에는 fields 미들웨어를 사용한다.
+
+multer single 이미지 하나는 req.file 로 나머지 정보는 req.body로
+
+multer array 이미지들은 req.files 로 나머지정보는 req.body로
+
+multer fields 위랑같음
+
+multer none 멀티파트로 보내고싶을때 씀 모든 정보를 req.body
+
+## 6.3 Router 객체로 라우팅 분리하기 
+
+next함수에 다음 라우터로 넘어가는 기능이있다. 바로 next('route') 이며, 라우터에 연결된 나머지 미들웨어를 건너 뛰고 싶을 때 사용한다.
+
+라우팅매개변수의 라우트들은 일반 라우터 보다 뒤에위치해야한다.
+
+app.js 에서 에러처리미들웨어 위에 넣어두 ㄴ미들웨어는 일치하는 라우터가 없을 때 404상태코드를 응답하는 역할을 한다. 미들웨어가 존재하지 않아도 익스프레스가 자체적으로 404에러를 처리해주기는 하지만 웬만하면 404응답 미들웨어와 에러처리 미들웨어를 연결해주는 것이 좋다.
+
+```js
+
+router.route('/abc')
+.get((req,res)=> {res.send('GET /abc')})
+.post((req,res) => {res.send('POST /abc')})
+```
+
+
+
+## 6.4 req, res객체에 관하여
+
+익스프레스의 req,res 객체는 http모듈의 req,res객체를 확장한 것이다. 기존 http모듈의 메서드도 사용할 수 있고 익스프레스가 추가한 메서드나 속성을 사용할 수도 있다. 예를 들어 res.writeHead, res.write, res.end 메서드를 그대로 사용할 수 있으면서 res.send 나 res.sendFile 같은 메서드도 쓸 수 있다. 다만 익스프레스의 메서드가 워낙 편리하기에 기존http모듈의 메서드는 잘 쓰이지 않는다.
+
+- req.app: req 객체를 통해 app 객체에 접근할 수 있다. req.app.get('port') 와 같은 식으로 사용할 수 있다.
+- req.body:body-parser 미들웨어가 만드는 요청의 본문을 해석한 객체이다.
+- req.cookies: cookie-parser 미들웨어가 만드는 요청의 쿠키를 해석한 객체이다.
+- req.ip: 요청의 ip주소가 담겨있다.
+- req.params: 라우트 매개변수에 대한 정보가 담긴 객체이다.
+- req.query: 쿼리 스트링에 대한 정보가 담긴 객체이다.
+- req.signedCookies 서명된 쿠키들은 여기
+- req.get(헤더이름): 헤더의 값을 가져오고 싶을 때 사용하는 메서드이다.
+
+res객체에대해 보자
+
+- res.app: res.app처럼 res객체를 통해 app객체에 접근할 수 있다.
+- res.cookie(키,값,옵션): 쿠키를 설정하는 메서드이다.
+- res.clearCookie(키,값, 옵션): 쿠키를 제거하는 메서드이다.
+- res.end(): 데이터없이 응답을 보낸다.
+- res.json(JSON): JSON형식의 응답을 보낸다.
+- res.redirect(주소): 리다이렉트할 주소와 함께 응답을 보낸다.
+- res.render(뷰, 데이터): 템플릿엔진을 렌더링해서 응답할 때 사용하는 메서드이다.
+- res.send(데이터): 데이터와 함께 응답을 보낸다. 데이터는 문자열일 수 있고 HTML일수 있으며 버퍼일수있고 객체나 배열일 수 있다.
+- res.sendFile(경로): 경로에 위치한 파일을응답한다.
+- res.set(헤더, 값): 응답의 헤더를 설정한다.
+- res.status(코드): 응답시의 HTTP상태 코드를 지정한다.
+
+res나 req 객체는 메서드 체이닝을 지원하는 경우가 많다.
+
+## 6.5 템플릿 엔진 사용하기
+
+템플릿 엔진은 자바스크립트를 사용해서 HTML을 렌더링 할수 있게 한다. 기존HTMl과의 문법이 살짝다를 수 있고 자바스크립트 문법이 들어있기도 하다.
+
+
+### 6.5.1 퍼그 (제이드)
+
+예쩐 이름인 제이드로 더 유명한 퍼그. 문법이간단하므로 코드의 양이 줄어든다. 루비를 ㅏㅅ용해봤다면 문법이 비슷해서 금방 적응하낟. 
+
+views는 템플릿 파일들이 위치하는 폴더를 지정한 것이다.
+
+res.render메서드가 이폴더 기준으로 템플릿 엔진을 찾아서 렌더링한다. res.render('index')라면 views/index.pug 를 렌더링한다. 
+
+html과 다르게 자바스크립트 변수를 템플릿에 렌더링할 수 있다. res.render호출시 보내는 변수를 퍼그가 처리한다. 서버로부터 받은 변수는 다양한 방식으로 퍼그에서 사용할 수 있다. 변수를 텍스트로 사용하고 싶다면 태그 뒤에 = 를 붙인후 변수를 입력한다. 속성에도  = 을 붙인후 변수를 사용할 수 있다. 텍스트 중간에 변수를 넣으려면 #{변수}를 사용하면 된다. 그러면 변수가 그 자리에 들어간다. #{} 의 내부와  = 기호 뒷부분은 자바스크립트로 해석하므로 input 태그의 경우처럼 자바스크립트 구문을 써도 된다.
+
+특수문자를 html엔티티라는 코드로 변환한다. 대표적인 html엔티티는 다음과같다.
+- <:&lt;
+- >:&gt;
+- &: &amp;
+- 띄어쓰기: &nbsp;
+- ": &quot;
+- ': &apos;
+
+
+#### 6.5.1.5 include
