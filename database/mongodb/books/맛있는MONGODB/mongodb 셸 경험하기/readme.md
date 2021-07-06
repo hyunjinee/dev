@@ -126,6 +126,119 @@ updateOne, updateMany 명령어는 도큐먼트 수정과 관련된 명령어이
 
 연산자를 이용해 원하는 대로 수정하지 못하는 상황이 딱하나있다. 배열을 값으로 갖는 필드를 수정하려면 한계가 있다. 배열의 값을 수정하는 방법에는 배열 요소를 추가하는 수정 방법이 있고, 배열 요소중에서 일부를 수정하는 수정방법이있다. 여기서 수정하려는 배열의 필드이름이 array 이다. 그안에identifier 는 배열 요소를 검색하는 조건의 이름이다. 
 
+도큐먼트 수정 배열 연산자를 알아보자.
+
+앞서 살펴본 연산자를 이용해 원하는 대로 수정하지 못하는 상황이 딱하나있다. 배열을 값으로 갖는 필드를 수정하려면 한계가있다. 배열의 값을 수정하는 방법에는 배열요소를 추가하는 수정 방법이있고, 배열 요소중에서 일부를 수정하는 수정방법이있다. 도큐먼트의 검색은 쿼리파라미터로 수행하게되고, 배열 요소 검색은 arrayFilters 파라미터로 수행하게된다.
+
+배열 요소의 일부를 수정하는 명령어를 써보자
+
+```js
+db.collection.updateMany(
+    { query condition},
+    {update operator}: {"array":value},
+    {arrayFilters: [ { identifier}: condition]}
+)
+```
+
+여기서 수정하려는 배열의 필드이름이 array 이다. 
+
+
+실습 
+
+1. 모든 글에 추천수 필드를추가하고 값을 0으로 설정한다.
+2. 비밀 게시판 글에 추천수를 1증가시킬 수 있다.
+3. 이미 댓글이 달린 자유게시판 글의 내용을 수정할 수 있다.
+4. 이미 댓글이 달린 자유게시판에 upvote 필드 없이 댓글을 추가한다. 
+5. 이미 댓글이 달린 글에 방금 달은 댓글에 upvote 필드를 값을 0으로 추가하자.
+
+```
+use board
+db.article.updateMany({}, {$set: {upvote: 0}})
+
+secretboard_id = db.board.find({name: "비밀게시판"}).toArray()[0]._id
+db.article.updateMany({board_id: secretboard_id} , { $inc: {upvote: 1}})
+
+
+db.article.updateOne({_id: doc_id}, {$set: {content: 'updated'}})
+
+db.article.updateOne({_id: doc_id}, {
+    $push: {comments: {author: "Quote", content: "reply"}}
+
+    
+})
+
+
+db.article.updateOne({_id: doc_id}, {
+    $set: {"comments.$[karoidcomment].upvote: 0}
+},
+{arrayFilters: [{"karoidcomment.author: "Quote"}]}
+)
+```
+
+
+
+## 2.5 도큐먼트 삭제
+
+db.collection.deleteOne(
+    query,
+    writeConcern: document,
+    collation: document
+)
+
+쿼리랑 writeconcern , collation 주고 삭제시키는거에요.
+
+쿼리를 이용해서 도큐먼트를 확정짓고 삭제할 수 있다. writeconcern 과 collation 파라니터는 2.4절의 도큐먼트 수정부분을 보면된다. 삭제하면 삭제한 숫자와 명령에 성공했는지알려주는 객체를 반환한다. 
+
+db.character.deleteMany({})
+
+db.character.drop(
+)
+
+실습은 3가지이다.
+
+1. 게시판에있는 모든 글을 삭제할 수 있는가?
+2. 모든 게시판을 삭제할수있나.
+3. board 데이터베이스를 삭제할 수 있는가?
+
+
+```
+db.article.deleteMany({})
+db.article.drop()
+db.board.drop()
+db.dropDatabase()
+```
+
+## 2.6 트랜잭션
+
+내가 만드는 애플리케이션이 가입시 100포인트를 자동으로 지급한다고 가정하자. 포인트를 지급하는 것이 매우 중요해서, 만약 포인트를 지급하지 못하면 차라리 가입이 안되도록 만들고 싶다면 어떻게 해야할까? 가입이 안되고 푕ㄴ트만 지급되거나 가입만되고 포인트가 지급되지 않는 사태를 막기위해서는 트랜잭션이라는 기능으로 유저 정보를 저장하는 명령과 포인트를 지급하는 명령어를 감싸버리면된다.
+
+몽고디비는 단일 도큐먼트를 쓰고, 수정하고 삭제하는 작업은 원자성이 성립한다. 하지만 이 작업을 여러개 묶어서 원자성을 유지하기 위해서는 트랜잭션이라는 기능을 사용해야 작업에 대한 원자성을 성립시킬수있다.
+
+트랜잭션 명령어 
+
+트랜잭션을 수행하기 위해서는 우선 세션을 할당받아야한다. 세션이란 일정시간같은 사용자로부터 들어오는 일련의 요구를 하나의 상태로보고 그상태를 일정하게 유지하는 기술이다. 요청하는 명령을 하나의 트랜잭션으로 묶으려면 바로 이 세션이 필요하다.
+
+```
+session = db.getMongo().startSession()
+session.startTransaction({readConcern: {level: "snapshot"},
+writeconcern: {w: "majority"}})
+
+session.commitTransaction();
+session.endSession();
+
+```
+
+우선 세션을 생성해서 변수에 저장하고 난 후에 트랜잭션을 두명령사이에 감싼다. startTransaction명령어를 실행하고, commitTransaction명령어가 실행되기까지 한 세션 안에 주어진 명령어는 하나의 트랜잭션으로 묶이게 된다. 트랜잭션을 수행할 때 ReadConcern 과 WriteConcern 은 startTransaction명령어에 설정해야한다. 왜냐하면 작업을 수행할 때 각각의 명령어에서 원자성이 지켜지는 것이 아니라 하나의 트랜잭션에 대한 원자성이 지켜지기 때문이다. 만약 일부러 트랜잭션 중간에 작업을 취소하고 싶으면 어떻게 해야할까 다음명령어로 취소가능하다.
+
+session.abortTransaction();
+
+복제와 샤딩을 할 경우 트랜잭션을 수행하는 것이 실제 서비스를 운영하는 입장에서 매우중요. 
+
+
+
+
+
+
 <!-- 울어
 울어울어울어썽 -->
 <!-- 닐로 벗 -->
