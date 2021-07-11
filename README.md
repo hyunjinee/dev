@@ -30,4 +30,6 @@ Git활용 방법이 부족하다고 생각해서, 깃을 다시 공부했다. �
 - `2020-04` [shoppingcart](https://github.com/hyunjinee/Frontend/tree/master/React/shoppingcart): react & typescript & materialui 이용해서 간단한 쇼핑카트시스템
 - `2020-04` [리액트를 다루는 기술](https://github.com/hyunjinee/how-to-handle-react): 리액트 관련 도서 읽기
 - `2020-04` [타입스크립트 프로그래밍](https://github.com/hyunjinee/Frontend/tree/master/JavaScript/javascript%20books/TypeScript%20Programming): 타입스크립트 관련 도서 읽기
--  
+- `2020-05` [Nodejs 교과서](): nodejs 관련 도서 읽기
+- `2020-06` [You Don't Know JS](): js 지식 넓히기
+- `2020-06` [프론트엔드 개발 첫걸음]() : 프론트엔드 관련 개발도서 읽기
