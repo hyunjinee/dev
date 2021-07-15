@@ -65,3 +65,11 @@ const client = net.connect(options, ()=> console.log('connected'))
 client.on('data', (data)=> console.log(data.toString()))
 client.on('end', ()=> console.log('disconnected'))
 ```
+
+
+## 4.3 rest api 설계 
+REST(Representational state transfer)는 http 프로토콜의 주요 저자인 로이 필딩이 2000년 자신의 박사학위 논문에서 소개했다. rest는 기존 rpc나 soap 등 복잡한 프로토콜로 통신하는 것보다 이미 널리 사용하는 http 프로토콜로 통신하는 것이 더 효율적이라는 내용이다. rest는 자원지향 구조로 접근하고자하는 자원에 고유한 URI를 부여하는 방식이다. 자원을 기준으로 API를 설계하기 때문에 행위를 기준으로 설계할 때는 어색한 부분이 발생하지만, 데이터 관점에서는 직관적인 설명이 가능하기에 널리 활용된다. 요구사항에서 정의된 기능을 개발하려면 HTTP호출을 위한 기능별 메서드와 URI를 정의해야한다. 
+
+## 4.4 데이터베이스 설계
+
+상품관리, 회원관리 구매관리를 만들려면 상품 회원 구매 데이터를 저장할 곳이 필요하다. 일반적으로 데이터를 저장하는 저장소로 관계형 데이터베이스와 비관계형 데이터베이스를 활용한다.
