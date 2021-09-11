@@ -36,3 +36,4 @@ Git활용 방법이 부족하다고 생각해서, 깃을 다시 공부했다. �
 - `2020-06` [자바스크립트 코딩의 기술]() : ES6 관련 팁들과 자바스크립트에 대해 깊이 이해
 - `2020-06` [animazon](): graphql tutorial
 - `2020-08` [covid tracker](https://github.com/hyunjinee/dev/tree/master/javascript/Vue/projects/covid-tracker): vuejs covid tracker app
+- `2020-09` [Real World Software Development](https://github.com/hyunjinee/dev/tree/master/java/books/Real-World%20Software%20Development): java로 소프트웨어를 개발하는 프로세스에 대하여 이해
