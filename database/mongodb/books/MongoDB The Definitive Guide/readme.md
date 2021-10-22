@@ -1,0 +1,1 @@
+[책 읽은 내용 정리](https://hyunjinee.notion.site/MongoDB-The-Definitive-Guide-eb256dde5680436fb118b787445160a9)
